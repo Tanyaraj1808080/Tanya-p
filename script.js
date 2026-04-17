@@ -140,30 +140,29 @@ let typeSpeed = 100;
 
 function type() {
   const currentRole = roles[roleIndex];
-  
+
   if (isDeleting) {
     typingText.textContent = currentRole.substring(0, charIndex - 1);
     charIndex--;
-    typeSpeed = 50;
+    typeSpeed = 50; // Slower, more controlled deleting
   } else {
     typingText.textContent = currentRole.substring(0, charIndex + 1);
     charIndex++;
-    typeSpeed = 150;
+    // Slower, more natural typing speed (between 120ms and 180ms)
+    typeSpeed = Math.random() * (180 - 120) + 120;
   }
 
   if (!isDeleting && charIndex === currentRole.length) {
     isDeleting = true;
-    typeSpeed = 2000; // Pause at end
+    typeSpeed = 3000; // Longer pause at the end of a word (3 seconds)
   } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
     roleIndex = (roleIndex + 1) % roles.length;
-    typeSpeed = 500;
+    typeSpeed = 1000; // Pause before starting to type the next word
   }
 
   setTimeout(type, typeSpeed);
 }
-
 if (typingText) {
   type();
 }
-
