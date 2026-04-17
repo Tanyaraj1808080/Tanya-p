@@ -166,3 +166,29 @@ function type() {
 if (typingText) {
   type();
 }
+
+// Scroll Spy - Highlight nav links on scroll
+window.addEventListener("scroll", () => {
+  let currentSection = "home";
+  const sections = document.querySelectorAll("section[id], .anchor-point[id]");
+  const scrollPosition = window.scrollY + 250; // Offset for better detection timing
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (scrollPosition >= sectionTop) {
+      currentSection = section.getAttribute("id");
+    }
+  });
+
+  // Specific fix for Work/Services overlap
+  if (currentSection === "services" && window.scrollY < document.getElementById("services").offsetTop - 50) {
+    currentSection = "work";
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + currentSection) {
+      link.classList.add("active");
+    }
+  });
+});
