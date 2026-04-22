@@ -3877,13 +3877,6 @@ body {
   margin-bottom: 24px !important;
 }
 
-/* .hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 32px;
-} */
-
 .tech-tag {
   padding: 6px 14px;
   background: var(--accent-soft);
@@ -4209,4 +4202,91 @@ body {
   .btn-pro {
     width: 100%;
   }
+}
+
+/* Preloader Styles */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loader {
+  width: 500px;
+  max-width: 90vw;
+}
+
+.trace-bg {
+  stroke: #333;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.trace-flow {
+  stroke-width: 1.8;
+  fill: none;
+  stroke-dasharray: 40 400;
+  stroke-dashoffset: 438;
+  filter: drop-shadow(0 0 6px currentColor);
+  animation: flow 3s cubic-bezier(0.5, 0, 0.9, 1) infinite;
+}
+
+.yellow {
+  stroke: #ffea00;
+  color: #ffea00;
+}
+
+.blue {
+  stroke: #00ccff;
+  color: #00ccff;
+}
+
+.green {
+  stroke: #00ff15;
+  color: #00ff15;
+}
+
+.purple {
+  stroke: #9900ff;
+  color: #9900ff;
+}
+
+.red {
+  stroke: #ff3300;
+  color: #ff3300;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.chip-body {
+  rx: 20;
+  ry: 20;
+}
+
+.chip-text {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.chip-pin {
+  stroke: #444;
+  stroke-width: 0.5;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
 }
