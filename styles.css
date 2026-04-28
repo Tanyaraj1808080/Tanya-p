@@ -2714,7 +2714,7 @@ body {
 }
 
 .sidebar {
-  width: 280px;
+  width: 320px;
   height: 100vh;
   position: fixed;
   left: 0;
@@ -2952,8 +2952,8 @@ body {
 }
 
 .hero-main {
-  margin-left: 280px;
-  width: calc(100% - 280px);
+  margin-left: 320px;
+  width: calc(100% - 320px);
   background: var(--page-bg);
 }
 
@@ -3936,14 +3936,6 @@ body {
   transform: translateY(-3px);
 }
 
-.hero-availability {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--text-muted);
-  font-weight: 500;
-}
 
 .status-indicator {
   width: 8px;
@@ -4002,7 +3994,7 @@ body {
 
 .hero-image-box {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   animation: softFadeUp 1s ease both;
 }
@@ -4289,4 +4281,23 @@ body {
   stroke: #444;
   stroke-width: 0.5;
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+}
+
+/* 3D Animated Hero Image */
+.animated-3d-img {
+  animation: float3D 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes float3D {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Enhancing hover effect since it's an animated 3D character */
+.hero-image-wrapper:hover .animated-3d-img {
+  animation-play-state: paused;
+  transform: scale(1.05) translateY(-5px);
+  transition: transform 0.4s ease;
 }

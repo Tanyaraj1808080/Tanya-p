@@ -201,6 +201,6 @@ window.addEventListener("load", () => {
       setTimeout(() => {
         preloader.style.display = "none";
       }, 500);
-    }, 4500);
+    }, 2500);
   }
 });
